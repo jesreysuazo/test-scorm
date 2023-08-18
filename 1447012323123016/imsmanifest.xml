@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest identifier="_6DglS7CSMIm_course_id" version="1.0" xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2" xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsproject.org/xsd/imscp_rootv1p1p2 imscp_rootv1p1p2.xsd http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd http://www.adlnet.org/xsd/adlcp_rootv1p2 adlcp_rootv1p2.xsd">
+  <metadata>
+    <schema>ADL SCORM</schema>
+    <schemaversion>1.2</schemaversion>
+    <lom xmlns="http://www.imsglobal.org/xsd/imsmd_rootv1p2p1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd">
+      <general>
+        <title>
+          <langstring xml:lang="x-none">Assessment Part </langstring>
+        </title>
+      </general>
+      <lifecycle>
+        <version>
+          <langstring xml:lang="x-none">1</langstring>
+        </version>
+        <status>
+          <source>
+            <langstring xml:lang="x-none">LOMv1.0</langstring>
+          </source>
+          <value>
+            <langstring xml:lang="x-none">Final</langstring>
+          </value>
+        </status>
+      </lifecycle>
+      <metametadata>
+        <metadatascheme>ADL SCORM 1.2</metadatascheme>
+      </metametadata>
+      <educational>
+        <typicallearningtime>
+          <datetime>PT0H0M0S</datetime>
+        </typicallearningtime>
+      </educational>
+      <rights>
+        <cost>
+          <source>
+            <langstring xml:lang="x-none">LOMv1.0</langstring>
+          </source>
+          <value>
+            <langstring xml:lang="x-none">yes</langstring>
+          </value>
+        </cost>
+        <copyrightandotherrestrictions>
+          <source>
+            <langstring xml:lang="x-none">LOMv1.0</langstring>
+          </source>
+          <value>
+            <langstring xml:lang="x-none">yes</langstring>
+          </value>
+        </copyrightandotherrestrictions>
+      </rights>
+    </lom>
+  </metadata>
+  <organizations default="Assessment_Part__ORG">
+    <organization identifier="Assessment_Part__ORG">
+      <title>Assessment Part </title>
+      <item identifier="Template_1_SCO" isvisible="true" identifierref="__6DglS7CSMIm_course_id_RES">
+        <title>Assessment Part </title>
+      </item>
+    </organization>
+  </organizations>
+  <resources>
+    <resource identifier="__6DglS7CSMIm_course_id_RES" type="webcontent" href="index_lms.html" adlcp:scormtype="sco">
+      <file href="story_content/thumbnail.jpg" />
+      <file href="mobile/6h5N4eSxU7A.png" />
+      <file href="mobile/6VwbbYKD0NO.png" />
+      <file href="mobile/6h5N4eSxU7A_B30.png" />
+      <file href="mobile/6VwbbYKD0NO_B30.png" />
+      <file href="mobile/6ECQ48AuLiZ.png" />
+      <file href="mobile/6ECQ48AuLiZ_B30.png" />
+      <file href="mobile/6oUJrZ0q9kA.png" />
+      <file href="mobile/6oUJrZ0q9kA_B30.png" />
+      <file href="mobile/69s6DPNOMPn.png" />
+      <file href="mobile/69s6DPNOMPn_B30.png" />
+      <file href="mobile/6HdPRZOZ4ZU.png" />
+      <file href="mobile/6HdPRZOZ4ZU_B30.png" />
+      <file href="mobile/5WGz90qWQJ4_80.png" />
+      <file href="mobile/5zNb0x5SgBr.png" />
+      <file href="mobile/5XbHuY67cor_P_85_34_1842_1256.png" />
+      <file href="mobile/6UpeADc8aJc_80_Q8.jpg" />
+      <file href="story_content/6HNulVK5rAz_44100_48_0.mp3" />
+      <file href="mobile/6LioQ6mC4kN_80.png" />
+      <file href="mobile/5wtkxthIOiT_P_0_0_1024_76.png" />
+      <file href="mobile/5tdauCtkMUG_P_0_517_1024_69.png" />
+      <file href="mobile/6BelCmpdv8g_P_109_560_1850_896.png" />
+      <file href="mobile/5tJYotr8wRK.png" />
+      <file href="mobile/5tJYotr8wRK_B30_C40.png" />
+      <file href="mobile/6ELPsle15XD_80_P_113_0_872_654.jpg" />
+      <file href="story_content/6HAkwi7jPFl_44100_48_0.mp3" />
+      <file href="story_content/62JzEZLBqKk_44100_48_0.mp3" />
+      <file href="story_content/6UPlJiQGUiF_44100_48_0.mp3" />
+      <file href="story_content/6V9WQkPc8wy_44100_48_0.mp3" />
+      <file href="story_content/6ZVUji9Jkxj_44100_48_0.mp3" />
+      <file href="meta.xml" />
+      <file href="story_content/user.js" />
+      <file href="html5/data/css/output.min.css" />
+      <file href="html5/data/js/5cF86OcVPBn.js" />
+      <file href="html5/data/js/5kiRQOWZKao.js" />
+      <file href="html5/data/js/5mcjhe8HTy1.js" />
+      <file href="html5/data/js/674rHSieUec.js" />
+      <file href="html5/data/js/6By9EfSRXJ5.js" />
+      <file href="html5/data/js/6qzLZzPTK1I.js" />
+      <file href="html5/data/js/6WC3rmVVRIx.js" />
+      <file href="html5/data/js/data.js" />
+      <file href="html5/data/js/frame.js" />
+      <file href="html5/data/js/paths.js" />
+      <file href="html5/lib/scripts/bootstrapper.min.js" />
+      <file href="html5/lib/scripts/frame.desktop.min.js" />
+      <file href="html5/lib/scripts/frame.mobile.min.js" />
+      <file href="html5/lib/scripts/slides.min.js" />
+      <file href="html5/lib/stylesheets/desktop.min.css" />
+      <file href="html5/lib/stylesheets/mobile.min.css" />
+      <file href="html5/lib/stylesheets/mobile-fonts/open-sans-bold.woff" />
+      <file href="html5/lib/stylesheets/mobile-fonts/open-sans-light.woff" />
+      <file href="html5/lib/stylesheets/mobile-fonts/open-sans-regular.woff" />
+      <file href="analytics-frame.html" />
+      <file href="story.html" />
+      <file href="index_lms.html" />
+      <file href="lms/AICCComm.html" />
+      <file href="lms/blank.html" />
+      <file href="lms/browsersniff.js" />
+      <file href="lms/goodbye.html" />
+      <file href="lms/scormdriver.js" />
+    </resource>
+  </resources>
+</manifest>
