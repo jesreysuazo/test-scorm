@@ -1,0 +1,181 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .container {
+    height: 100vh;
+    width: 100vw;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    flex-direction: column;
+  }
+
+  .img-bg {
+    width: 100%;
+  }
+
+  .scorm-header {
+    width: 100%;
+    position: relative;
+    top: 2vw;
+  }
+
+  .scorm-content {
+    width: 100%;
+    position: relative;
+    top: 1vw;
+  }
+
+  .scorm-footer {
+    width: 100%;
+    position: relative;
+  }
+
+  .header-text {
+    font-size: 3.5vw;
+    position: absolute;
+    right: 8vw;
+    z-index: 1;
+    top: 1.8vw;
+    color: #2C4B56;
+    font-weight: 600;
+    font-family: monospace;
+}
+
+.home-btn {
+  width: 5vw;
+  height: 5vw;
+  position: absolute;
+  z-index: 1;
+  right: 1vw;
+  top: 1.2vw;
+}
+
+.content {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  top: 0vw;
+  flex-direction: column;
+  align-items: center;
+}
+
+.laptop {
+  width: 25vw;
+  height: 20vw;
+  padding-top: 10vw;
+}
+
+img.laptop-screen {
+  width: 19vw;
+  height: 13vw;
+  position: absolute;
+  top: 11vw;
+  opacity: .5;
+}
+
+.banner{
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(217,241,240,1) 7%, rgba(217,241,240,1) 93%, rgba(255,255,255,0) 100%);
+  width: 100%;
+  color:#0C5366;
+  font-family: monospace;
+  font-size: 4vw;
+  font-weight: 600;
+  padding: 1vw;
+  margin: 1vw;
+}
+
+.desc {
+  color: #156071;
+  font-weight: 400;
+  font-size: 2.4vw;
+  font-family: system-ui;
+}
+
+img.footer-btn {
+  height: 4.5vw;
+  width: 4.5vw;
+}
+
+.btn-container {
+  display: flex;
+  flex-direction: row;
+  right: 1vw;
+  top: 1vw;
+  gap: 1vw;
+  position: absolute;
+}
+
+.paginate-text {
+  font-size: 2.5vw;
+  color: #fff;
+  margin: 0 1vw;
+  font-family: system-ui;
+  font-weight: 100;
+  padding-top: 0.8vw;
+}
+
+#questionnaire{
+  display: none;
+}
+
+.questionnaire-bg {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.question-banner {
+  background: linear-gradient(90deg, rgba(52,133,149,1) 0%, rgba(52,133,149,0.7973783263305322) 45%, rgba(255,255,255,0) 75%);
+  position: absolute;
+  width: 100%;
+  display: flex;
+  top: 0;
+  font-size: 2vw;
+  padding: 0.6vw 1.2vw;
+  font-family: monospace;
+  color: #fff;
+  z-index: 20;
+}
+
+.card {
+  position: absolute;
+  top: 0;
+  width: 97.5%;
+  background: #fff;
+  margin-left: 1.3vw;
+  margin-top: 1vw;
+  height: 73vw;
+  border-radius: 1.5vw;
+  opacity: 0.8;
+  z-index: 10;
+}
+
+.instructions {
+  font-size: 1.55vw;
+  margin-top: 3vw;
+  margin-left: 1vw;
+  font-family: system-ui;
+  color: #2C4B56;
+  position: absolute;
+  top: 1vw;
+  left: 1vw;
+  z-index: 11;
+}
+
+.question {
+  position: absolute;
+  z-index: 11;
+  top: 10vw;
+  background: #2C4B56;
+  margin: 0 8vw;
+  color: #fff;
+  font-size: 3vw;
+}
