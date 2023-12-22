@@ -30,7 +30,7 @@ function showQuestions () {
         document.getElementById('homePage').style.display="none";
         document.getElementById('questionnaire').style.display="block";
         displayQuestion.textContent = questionList[0]
-        alert('utos ni jok')
+        alert('from mobile device to webview')
     }, 500);
 
 }
