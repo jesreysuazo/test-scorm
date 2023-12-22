@@ -30,6 +30,7 @@ function showQuestions () {
         document.getElementById('homePage').style.display="none";
         document.getElementById('questionnaire').style.display="block";
         displayQuestion.textContent = questionList[0]
+        alert('utos ni jok')
     }, 500);
 
 }
@@ -37,3 +38,8 @@ function showQuestions () {
 function nextQuestion () {
 
 }
+
+window.addEventListener("message", message => {
+    showQuestions()
+    // alert(message.data)
+  });
