@@ -68,5 +68,13 @@
 
 
 </body>
+<script>
+    // const sendDataToReactNativeApp = async () => {
+    //   window.ReactNativeWebView.postMessage('Data from WebView / Website');
+    // };
+    window.addEventListener("message", message => {
+      alert(message.data) 
+    });
+  </script>
 
 </html>
