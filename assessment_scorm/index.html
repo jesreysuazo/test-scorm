@@ -1,72 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assessment Part</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="styles.css">
+  <title>Assessment Part</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
 
+    .aspect-ratio-container {
+      width: 104.4vw; /* 1044 / 10 = 104.4 */
+      height: 81.2vw; /* 812 / 10 = 81.2 */
+      max-width: 1044px;
+      max-height: 812px;
+      background-color: #f0f0f0; /* Optional: Set a background color */
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column; /* Align children vertically */
+    }
+
+  </style>
 </head>
-
 <body>
 
-    <div class="container">
-
-        <!-- slide 1 -->
-        <div id="homePage">
-            <div class="scorm-header">
-                <img class="img-bg" src="./assets/mobile/5wtkxthIOiT_P_0_0_1024_76.png">
-                <div class="header-text">EMERGENCY TOWING</div>
-                <img class="home-btn" onmouseover="mouseIn('homeBtn')" onmouseout="mouseOut('homeBtn')" id="homeBtn" src="./assets/mobile/6HdPRZOZ4ZU.png">
+  <div class="aspect-ratio-container">
+    <!-- initial slide -->
+    <div id="playSlide">
+        <div class="scorm-title" id="scormTitle">Assessment Part</div>
+        <div class="play-button-container" onclick="startScorm()">
+            <div class="play-button" id="playButton">
+              <div class="play-triangle"></div>
             </div>
-            <div class="scorm-content">
-                <img class="img-bg" src="./assets/mobile/5WGz90qWQJ4_80.png">
-                <div class="content">
-                    <img class="laptop" src="./assets/mobile/5zNb0x5SgBr.png">
-                    <img class="laptop-screen" src="./assets/mobile/5XbHuY67cor_P_85_34_1842_1256.png">
-                    <img class="laptop-screen" src="./assets/mobile/6UpeADc8aJc_80_Q8.jpg">
-    
-                    <div class="banner">ASSESSMENT</div>
-                    <div class="desc">Great work! You made it!</div>
-                    <div class="desc">You may now take your assessment for this module.</div>
-                    <div class="desc">Click the next button if you are ready</div>
-                </div>
-            </div>
+          </div>
+    </div>
 
-            <div class="scorm-footer">
-                <img class="img-bg" src="./assets/mobile/5tdauCtkMUG_P_0_517_1024_69.png">
-                <div class="btn-container">
-                    <img class="footer-btn" src="./assets/mobile/6oUJrZ0q9kA.png">
-                    <img class="footer-btn" src="./assets/mobile/69s6DPNOMPn.png">
-                    <img class="footer-btn" src="./assets/mobile/6ECQ48AuLiZ.png">
-                    <div class="paginate-text" id="pagination">1 / 2</div>
-                    <img onclick="showQuestions()" class="footer-btn" src="./assets/mobile/6h5N4eSxU7A.png">
-                </div>
+    <!-- slide 1 -->
+    <div id="homePage" class="home-page">
+        <div class="scorm-header">
+            <img class="img-bg" src="./assets/mobile/5wtkxthIOiT_P_0_0_1024_76.png">
+            <div class="header-text" id="headerText">EMERGENCY TOWING</div>
+            <img class="home-btn" onmouseover="mouseIn('homeBtn')" onmouseout="mouseOut('homeBtn')" id="homeBtn" src="./assets/mobile/6HdPRZOZ4ZU.png">
+        </div>
+        <div class="scorm-content">
+            <img class="img-bg" src="./assets/mobile/5WGz90qWQJ4_80.png">
+            <div class="content">
+                <img class="laptop" id="laptop" src="./assets/mobile/5zNb0x5SgBr.png">
+                <img class="laptop-screen" id="laptopScreen" src="./assets/mobile/5XbHuY67cor_P_85_34_1842_1256.png">
+                <img class="laptop-screen" id="laptopScreen2" src="./assets/mobile/6UpeADc8aJc_80_Q8.jpg">
+
+                <div class="banner" id="banner">ASSESSMENT</div>
+                <div class="desc" id="desc1">Great work! You made it!</div>
+                <div class="desc" id="desc2">You may now take your assessment for this module.</div>
+                <div class="desc" id="desc3">Click the next button if you are ready</div>
             </div>
         </div>
 
-        <!-- slide 2 -->
-        <div id="questionnaire">
-            <div class="questionnaire-bg">
-                <img class="img-bg" src="./assets/mobile/6ELPsle15XD_80_P_113_0_872_654.jpg">
-                <div class="question-banner">
-                    Assessment: Part 1
-                </div>
-                <div class="card"></div>
-                <div class="instructions">
-                    <span style="font-weight: 700;">INSTRUCTIONS:</span> Read the following questions carefully. Select the letter of the correct answer then click submit to proceed 
-                </div>
-                <div id="question" class="question">
-                    
-                </div>
+        <div class="scorm-footer">
+            <img class="img-bg" src="./assets/mobile/5tdauCtkMUG_P_0_517_1024_69.png">
+            <div class="btn-container" id="btnContainer">
+                <img onclick="pauseAudio()" class="footer-btn" id="btnFooter1" src="./assets/mobile/6oUJrZ0q9kA.png">
+                <img onclick="repeatAudio()"class="footer-btn" id="btnFooter2" src="./assets/mobile/69s6DPNOMPn.png">
+                <img class="footer-btn" id="btnFooter3" src="./assets/mobile/6ECQ48AuLiZ.png">
+                <div class="paginate-text" id="pagination">1 / 2</div>
+                <img onclick="showQuestions()" class="footer-btn"id="btnFooter4" src="./assets/mobile/6h5N4eSxU7A.png">
             </div>
-
         </div>
-      </div>
+
+        <audio id="homePageAudio" autoplay>
+            <source src="./assets/story_content/6HNulVK5rAz_44100_48_0.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
+      <!-- slide 2 -->
+    <div id="questionnaire" class="questionnaire-bg">
+
+        <img class="img-bg" src="./assets/mobile/6ELPsle15XD_80_P_113_0_872_654.jpg">
+        <div class="question-banner" id="questionBanner">
+            Assessment: Part 1
+        </div>
+        <div class="card">
+            <div class="instructions" id="instructions">
+                <span style="font-weight: 700;">INSTRUCTIONS:</span> Read the following questions carefully. Select the letter of the correct answer then click submit to proceed 
+            </div>
+        </div>
+        <div id="questionCard" class="question-card">
+            <div id="question" class="question">
+            </div>
+            <div id="choices"></div>
+        </div>
+        <div class="btn-submit-container">
+            <button class="btn-submit" onclick="nextQuestion()" id="btnSubmit">Submit</button>
+        </div>
+        <audio id="assessmentAudio" autoplay>
+            <source src="./assets/story_content/6HAkwi7jPFl_44100_48_0.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
+    <!-- modal for no selected answer -->
+    <div>
+
+    </div>
+  </div>
 
 
+  <script src="script.js">
+ 
+  </script>
 </body>
-
 </html>
