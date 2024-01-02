@@ -243,6 +243,7 @@ function displayQuestionAndOptions(question) {
         });
 
         displayChoices.appendChild(optionElement);
+        logDimensions()
     });
 }
 
