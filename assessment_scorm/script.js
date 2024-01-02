@@ -47,6 +47,11 @@
        {id:'questionBanner', value:0.6, unit:'vw', style: 'paddingBottom'},
        {id:'questionBanner', value:1.2, unit:'vw', style: 'paddingLeft'},
        {id:'questionBanner', value:1.2, unit:'vw', style: 'paddingRight'},
+       {id:'scoreBanner', value:2, unit:'vw', style: 'fontSize'},
+       {id:'scoreBanner', value:0.6, unit:'vw', style: 'paddingTop'},
+       {id:'scoreBanner', value:0.6, unit:'vw', style: 'paddingBottom'},
+       {id:'scoreBanner', value:1.2, unit:'vw', style: 'paddingLeft'},
+       {id:'scoreBanner', value:1.2, unit:'vw', style: 'paddingRight'},
        {id:'instructions', value:1.55, unit:'vw', style: 'fontSize'},
        {id:'question', value:2.2, unit:'vw', style: 'fontSize'},
        {id:'scormTitle', value:2, unit:'vw', style: 'fontSize'},
@@ -67,6 +72,20 @@
        {id:'option_3', value:2, unit:'vw', style: 'width'},
        {id:'option_3', value:2, unit:'vw', style: 'height'},
        {id:'btnSubmit', value:1.5, unit:'vw', style: 'fontSize'},
+       {id:'errModal', value:0.5, unit:'vw', style: 'borderRadius'},
+       {id:'btnModalContainer', value:3, unit:'vw', style: 'height'},
+       {id:'btnModalContainer', value:3, unit:'vw', style: 'marginTop'},
+       {id:'btnModal', value:2, unit:'vw', style: 'borderRadius'},
+       {id:'modalHeader', value:1.5, unit:'vw', style: 'fontSize'},
+       {id:'modalBody', value:1.3, unit:'vw', style: 'fontSize'},
+       {id:'passedCard', value:1, unit:'vw', style: 'borderRadius'},
+       {id:'cardText', value:6, unit:'vw', style: 'fontSize'},
+       {id:'remarksText', value:3.5, unit:'vw', style: 'fontSize'},
+       {id:'remarksTextFailed', value:2.8, unit:'vw', style: 'fontSize'},
+       {id:'passingScoreText', value:3, unit:'vw', style: 'fontSize'},
+       {id:'userScoreText', value:3, unit:'vw', style: 'fontSize'},
+       {id:'txtIns', value:2.5, unit:'vw', style: 'fontSize'},
+       {id:'endBtn', value:2, unit:'vw', style: 'fontSize'},
    ]
 
    // Function to convert vw to px based on aspect ratio container width
@@ -95,7 +114,10 @@
      const viewportWidth = window.innerWidth;
      const viewportHeight = window.innerHeight;
 
-     displayQuestionAndOptions(questionList[currentQuestionIndex]);
+     if(currentQuestionIndex != 5){
+        displayQuestionAndOptions(questionList[currentQuestionIndex]);
+
+     }
      if (width === viewportWidth) {
        // Viewport width is equal to container width
        for (let index = 0; index < styles.length; index++) {
@@ -173,42 +195,59 @@ let isPaused = false; // pausing audio file
 let currentQuestionIndex = 0;
 const displayQuestion = document.getElementById('question');
 const displayChoices = document.getElementById('choices');
+const correctAnswers = [0, 1, [1, 2], 1, 2];
+let userScore = 0;
 
-    // Function to display a question and its options
-    function displayQuestionAndOptions(question) {
-        displayQuestion.textContent = question.question;
-        displayChoices.innerHTML = ''; // Clear previous options
-  
-        question.options.forEach((option, index) => {
-          const optionElement = document.createElement('div');
-          optionElement.className = 'option';
-          optionElement.id = `options_${index}`;
-  
-          const radioInput = document.createElement('input');
-          radioInput.type = 'radio';
-          radioInput.className = 'radio-button'
-          radioInput.name = `question_${currentQuestionIndex}`; // Use a unique name for each question
-          radioInput.checked = option.isSelected;
-          radioInput.id = `option_${index}`;
-  
-          const optionLabel = document.createElement('label');
-          optionLabel.textContent = option.choice;
-          optionLabel.setAttribute('for', `option_${index}`);
-  
-          optionElement.appendChild(radioInput);
-          optionElement.appendChild(optionLabel);
-  
-          // Attach an event listener to manually toggle the radio button when the div is clicked
-          optionElement.addEventListener('click', () => {
-            question.options.forEach((o) => (o.isSelected = false));
-            option.isSelected = !option.isSelected;
-            radioInput.checked = option.isSelected;
+// Function to display a question and its options
+function displayQuestionAndOptions(question) {
+    displayQuestion.textContent = question.question;
+    displayChoices.innerHTML = ''; // Clear previous options
+
+    question.options.forEach((option, index) => {
+        const optionElement = document.createElement('div');
+        optionElement.className = 'option';
+        optionElement.id = `options_${index}`;
+
+        const inputType = (currentQuestionIndex === 2) ? 'checkbox' : 'radio';
+
+        const radioInput = document.createElement('input');
+        radioInput.type = inputType;
+        radioInput.className = 'radio-button';
+        radioInput.name = `question_${currentQuestionIndex}`; // Use a unique name for each question
+        radioInput.checked = option.isSelected;
+        radioInput.id = `option_${index}`;
+
+        const optionLabel = document.createElement('label');
+        optionLabel.textContent = option.choice;
+        optionLabel.className = 'option-label'
+
+        // Set pointer-events to none for the text content
+        optionLabel.style.pointerEvents = 'none';
+
+        optionLabel.setAttribute('for', `option_${index}`);
+        optionLabel.appendChild(radioInput);
+
+        optionElement.appendChild(optionLabel);
+
+        // Attach an event listener to manually toggle the radio button when the div is clicked
+        optionElement.addEventListener('click', () => {
+            if (currentQuestionIndex === 2) {
+                option.isSelected = !option.isSelected;
+                radioInput.checked = option.isSelected;
+            } else {
+                question.options.forEach((o) => (o.isSelected = false));
+                option.isSelected = !option.isSelected;
+                radioInput.checked = option.isSelected;
+            }
             console.log(questionList);
-          });
-  
-          displayChoices.appendChild(optionElement);
         });
-      }
+
+        displayChoices.appendChild(optionElement);
+    });
+}
+
+
+
 
 function mouseIn (id) {
 
@@ -236,8 +275,6 @@ function showQuestions () {
        document.getElementById('homePage').style.display="none";
        document.getElementById('questionnaire').style.display="flex";
        document.getElementById('assessmentAudio').play()
-    //    displayQuestion.textContent = questionList[0].question
-    // displayQuestionAndOptions(questionList[currentQuestionIndex]);
        // alert('from mobile device to webview')
    }, 500);
 
@@ -265,25 +302,133 @@ function repeatAudio(){
    document.getElementById('homePageAudio').play()
 }
 
+// Function to calculate and display the user's score
+function calculateScore(i) {
+
+    if(i == 1 && questionList[0].options[0].isSelected == true){
+        userScore = userScore + 1;
+        console.log(userScore)
+    }
+    if(i == 2 && questionList[1].options[1].isSelected == true ){
+        userScore = userScore + 1;
+        console.log(userScore)
+    }
+    if(i == 3 && questionList[2].options[1].isSelected == true && questionList[2].options[2].isSelected == true){
+        userScore = userScore + 1;
+        console.log(userScore)
+    }
+    if(i == 4 && questionList[3].options[1].isSelected == true){
+        userScore = userScore + 1;
+        console.log(userScore)
+    }
+    if(i == 5 && questionList[4].options[2].isSelected == true){
+        userScore = userScore + 1;
+        console.log(userScore)
+    }
+}
+
 function nextQuestion() {
+    getTimeStamp()
+    document.getElementById('assessmentAudio').pause()
     // Check if there is a selected answer
     const selectedAnswer = questionList[currentQuestionIndex].options.find(option => option.isSelected);
     if (!selectedAnswer) {
-      console.log('No selected answer');
-      return;
+        console.log('No selected answer');
+        openModal();
+        return;
     }
 
     // Proceed to the next question
     currentQuestionIndex++;
     if (currentQuestionIndex < questionList.length) {
-      displayQuestionAndOptions(questionList[currentQuestionIndex]);
+        displayQuestionAndOptions(questionList[currentQuestionIndex]);
+        calculateScore(currentQuestionIndex);
     } else {
-      alert('End of questions');
+        // Display the user's score
+        calculateScore(currentQuestionIndex);
+        document.getElementById('questionnaire').style.display="none";
+        document.getElementById('scoreScreen').style.display="flex";
+        displayScores();
+        // alert(`Your score is ${userScore} out of ${questionList.length}`);
     }
+}
+
+function displayScores() {
+    const displayScore = userScore * 20;
+    const displayScoreText = document.getElementById('userScoreText');
+    const displayResult = document.getElementById('cardText');
+    const passedRemarks = document.getElementById('remarksText');
+    const failedRemarks = document.getElementById('remarksTextFailed');
+    const passedAudio = document.getElementById('passedAudioSound');
+    const failedAudio = document.getElementById('failedAudioSound');
+    const passedSpeech = document.getElementById('passedAudioSpeech');
+    const failedSpeech = document.getElementById('failedAudioSpeech');
+
+    displayScoreText.innerHTML = `
+        <div class="score-text" id="userScoreText">YOUR SCORE: ${displayScore}%</div>
+    `;
+
+    // function playSpeech() {
+    //     if (displayScore <= 69) {
+    //         failedAudio.play();
+    //     } else {
+    //         passedAudio.play();
+    //     }
+    // }
+
+    // Event listener for the 'ended' event of audio elements
+    passedAudio.addEventListener('ended', function () {
+        passedSpeech.play();
+    });
+
+    failedAudio.addEventListener('ended', function () {
+        failedSpeech.play();
+    });
+
+    if (displayScore <= 69) {
+        displayResult.innerHTML = 'FAILED';
+        document.getElementById('passedCard').style.backgroundColor = '#B70C12';
+        passedRemarks.style.display = 'none';
+        failedRemarks.style.display = 'block';
+        failedAudio.play();
+    } else {
+        passedAudio.play();
+    }
+}
+
+ function openModal() {
+    document.getElementById('backdrop').style.display = 'block';
+    document.getElementById('errModal').style.display = 'block';
+  }
+  
+  function closeModal() {
+    document.getElementById('backdrop').style.display = 'none';
+    document.getElementById('errModal').style.display = 'none';
   }
 
 
+// format data for scorm
+let timestamp = ''
+let scormdata = ''
+function getTimeStamp() {
+    const currentTime = new Date();
+
+    // Format the time as HH:mm:ss
+    const hours = currentTime.getHours().toString().padStart(2, '0');
+    const minutes = currentTime.getMinutes().toString().padStart(2, '0');
+    const seconds = currentTime.getSeconds().toString().padStart(2, '0');
+  
+    const formattedTime = `${hours}:${minutes}:${seconds}`;
+    timestamp = formattedTime;
+    console.log(formattedTime)
+}
+
 window.addEventListener("message", message => {
-   showQuestions()
-   // alert(message.data)
- });
+    scormdata = message.data;
+    if (scormdata){
+        console.log(JSON.parse(scormdata));
+
+    }    
+    // alert(message.data)
+  });
+ 
