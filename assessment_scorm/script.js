@@ -427,6 +427,7 @@ window.addEventListener("message", message => {
     scormdata = message.data;
     if (scormdata){
         console.log(JSON.parse(scormdata));
+        alert(scormdata)
 
     }    
     // alert(message.data)
