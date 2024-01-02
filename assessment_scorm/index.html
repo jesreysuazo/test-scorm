@@ -33,14 +33,28 @@
 <body>
 
   <div class="aspect-ratio-container">
-    <!-- initial slide -->
+    <!-- initial slide no data-->
     <div id="playSlide">
         <div class="scorm-title" id="scormTitle">Assessment Part</div>
-        <div class="play-button-container" onclick="startScorm()">
+        <div class="play-button-container" onclick="loadScorm()">
             <div class="play-button" id="playButton">
               <div class="play-triangle"></div>
             </div>
           </div>
+    </div>
+
+    <!-- initial slide saved data-->
+    <div id="playSlideSaved">
+        <div class="scorm-title" id="scormTitle">Assessment Part</div>
+        <div class="play-button-container" onclick="loadScorm()">
+            <div class="play-button-saved" id="playButtonSaved">
+              <div class="play-triangle-saved"></div>
+              <div class="txtResume" id="txtResume">Resume</div>
+            </div>
+          </div>
+        <div class="reload-section" id="reloadSect" onclick="startScorm()">
+            <span class=reload>&#x21bb;</span> Restart
+        </div>
     </div>
 
     <!-- slide 1 -->

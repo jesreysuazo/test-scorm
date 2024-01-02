@@ -219,6 +219,27 @@ img.laptop-screen {
   transform: rotate(270deg);
 }
 
+.play-triangle-saved {
+  width: 0;
+  height: 0;
+  border-left: 1.5vw solid transparent;
+  border-right: 1.5vw solid transparent;
+  border-top: 2.5vw solid gray;
+  transform: rotate(270deg);
+}
+
+.play-button-saved {
+  width: 25vw;
+  height: 10vw;
+  border-radius: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid white;
+  cursor: pointer;
+  background-color: white;
+}
+
 div#playSlide {
   flex: 1;
   background-color: black;
@@ -229,12 +250,34 @@ div#playSlide {
   position: fixed;
   top: 50%;
   left: 50%;
+  display: none;
+}
+div#playSlideSaved {
+  flex: 1;
+  background-color: black;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999;
+  transform: translate(-50%, -50%);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  display: none;
 }
 
 .scorm-title {
   width: 100%;
   text-align: center;
   top: 23%;
+  position: absolute;
+  /* font-size: 2vw; */
+  font-family: tahoma;
+  color: white;
+}
+.reload-section {
+  width: 100%;
+  text-align: center;
+  bottom: 23%;
   position: absolute;
   /* font-size: 2vw; */
   font-family: tahoma;
@@ -420,3 +463,9 @@ div#remarksTextFailed{
   /* font-size: 2.5vw; */
   margin: 4% 0;
 }
+
+.txtResume {
+  margin-left: 2vw;
+  font-family: tahoma;
+}
+
