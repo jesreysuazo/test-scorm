@@ -55,6 +55,7 @@
        {id:'instructions', value:1.55, unit:'vw', style: 'fontSize'},
        {id:'question', value:2.2, unit:'vw', style: 'fontSize'},
        {id:'scormTitle', value:2, unit:'vw', style: 'fontSize'},
+       {id:'reloadSect', value:2, unit:'vw', style: 'fontSize'},
        {id:'options_0', value:2, unit:'vw', style: 'fontSize'},
        {id:'options_0', value:1, unit:'vw', style: 'borderRadius'},
        {id:'options_1', value:2, unit:'vw', style: 'fontSize'},
@@ -86,6 +87,8 @@
        {id:'userScoreText', value:3, unit:'vw', style: 'fontSize'},
        {id:'txtIns', value:2.5, unit:'vw', style: 'fontSize'},
        {id:'endBtn', value:2, unit:'vw', style: 'fontSize'},
+       {id:'txtResume', value:2, unit:'vw', style: 'marginLeft'},
+       {id:'txtResume', value:2.5, unit:'vw', style: 'fontSize'},
    ]
 
    // Function to convert vw to px based on aspect ratio container width
@@ -106,6 +109,11 @@
    // Log initial dimensions and update font size
    window.addEventListener('load', function () {
      logDimensions();
+
+    let data = {"cmi.core.student_id":"13","cmi.core.student_name":"joshua.campos","cmi.core.lesson_location":"","cmi.core.credit":"credit","cmi.core.lesson_status":"incomplete","cmi.core.entry":"resume","cmi.core.score.raw":"40","cmi.core.score.max":"100","cmi.core.score.min":"0","cmi.core.total_time":"","cmi.core.lesson_mode":"normal","cmi.core.exit":"suspend","cmi.core.session_time":"0000:02:00.0","cmi.suspend_data":"2ma810203040ts1001310k01010011100121001310~2X2e000000000000001^1^1^1^1^1^1^1^1^1^1^1^1^1^1^1^1^1^1^1^1^1^1^1^1^1^1^1^1^1^1^1^1^1^1^1^1^1^1^1^1^1^1010101010101^1^1^1^1^1^1^1^10101010101^101010101010v_player.5qMcVdRA9Xn.6qzLZzPTK1I1^1^~2e6~233l3pW241110b101001111103672~2v23400340034003400340034003400g600101^8_defaultg600101^8_defaultr70040181^h_default_Selectedg600101^8_default3400g600101^8_default3400q7w020141^g_default_Visited002110~2$2j3rJe210b1010011111132Ke~2v23400340034003400340034003400g600101^8_defaultr70040181^h_default_Selectedg600101^8_defaultg600101^8_default3400g600101^8_default3400q7w020141^g_default_Visited00000000002002002002002002002002002000","cmi.launch_data":"","cmi.comments":"","cmi.comments_from_lms":"","cmi.objectives._count":"0","cmi.student_data.mastery_score":"","cmi.student_data.max_time_allowed":"","cmi.student_data.time_limit_action":"","cmi.student_preference.audio":"0","cmi.student_preference.language":"","cmi.student_preference.speed":"0","cmi.student_preference.text":"0","cmi.interactions._count":"6","cmi.interactions.0.id":"Scene5_Slide2_MultiChoice_0_0","cmi.interactions.0.objectives._count":"1","cmi.interactions.0.objectives.0.id":"Assessment_Part","cmi.interactions.0.correct_responses._count":"1","cmi.interactions.0.correct_responses.0.pattern":"","cmi.interactions.0.time":"09:25:47","cmi.interactions.0.type":"choice","cmi.interactions.0.weighting":"1","cmi.interactions.0.student_response":"z","cmi.interactions.0.result":"correct","cmi.interactions.0.latency":"","cmi.interactions.1.id":"Scene5_Slide2_MultiChoice_0_0","cmi.interactions.1.objectives._count":"1","cmi.interactions.1.objectives.0.id":"Assessment_Part","cmi.interactions.1.correct_responses._count":"1","cmi.interactions.1.correct_responses.0.pattern":"","cmi.interactions.1.time":"09:38:37","cmi.interactions.1.type":"choice","cmi.interactions.1.weighting":"1","cmi.interactions.1.student_response":"z","cmi.interactions.1.result":"wrong","cmi.interactions.1.latency":"","cmi.interactions.2.id":"Scene5_Slide3_MultiChoice_0_0","cmi.interactions.2.objectives._count":"1","cmi.interactions.2.objectives.0.id":"Assessment_Part","cmi.interactions.2.correct_responses._count":"1","cmi.interactions.2.correct_responses.0.pattern":"","cmi.interactions.2.time":"10:03:46","cmi.interactions.2.type":"choice","cmi.interactions.2.weighting":"1","cmi.interactions.2.student_response":"z","cmi.interactions.2.result":"correct","cmi.interactions.2.latency":"0000:00:05.14","cmi.interactions.3.id":"Scene5_Slide4_MultiResponse_0_0","cmi.interactions.3.objectives._count":"1","cmi.interactions.3.objectives.0.id":"Assessment_Part","cmi.interactions.3.correct_responses._count":"1","cmi.interactions.3.correct_responses.0.pattern":"","cmi.interactions.3.time":"10:03:48","cmi.interactions.3.type":"choice","cmi.interactions.3.weighting":"1","cmi.interactions.3.student_response":"z,z","cmi.interactions.3.result":"correct","cmi.interactions.3.latency":"","cmi.interactions.4.id":"Scene5_Slide2_MultiChoice_0_0","cmi.interactions.4.objectives._count":"1","cmi.interactions.4.objectives.0.id":"Assessment_Part","cmi.interactions.4.correct_responses._count":"1","cmi.interactions.4.correct_responses.0.pattern":"","cmi.interactions.4.time":"10:16:12","cmi.interactions.4.type":"choice","cmi.interactions.4.weighting":"1","cmi.interactions.4.student_response":"z","cmi.interactions.4.result":"correct","cmi.interactions.4.latency":"","cmi.interactions.5.id":"Scene5_Slide3_MultiChoice_0_0","cmi.interactions.5.objectives._count":"1","cmi.interactions.5.objectives.0.id":"Assessment_Part","cmi.interactions.5.correct_responses._count":"1","cmi.interactions.5.correct_responses.0.pattern":"z","cmi.interactions.5.time":"10:19:08","cmi.interactions.5.type":"choice","cmi.interactions.5.weighting":"1","cmi.interactions.5.student_response":"z","cmi.interactions.5.result":"correct","cmi.interactions.5.latency":"0000:01:00.33,"}
+     scormdata = JSON.stringify(data)
+    // scormdata = ''
+     checkProgress();
    });
 
    function logDimensions() {
@@ -410,6 +418,8 @@ function displayScores() {
 // format data for scorm
 let timestamp = ''
 let scormdata = ''
+let cmiInteractions = {};
+let remainingData = {};
 function getTimeStamp() {
     const currentTime = new Date();
 
@@ -431,5 +441,32 @@ window.addEventListener("message", message => {
 
     // }    
     alert(message.data)
+    checkProgress();
   });
- 
+
+function checkProgress(){
+    if( scormdata != ''){
+        document.getElementById('playSlideSaved').style.display='block';
+    } else {
+        document.getElementById('playSlide').style.display='block';
+    }
+
+    let data = JSON.parse(scormdata)
+    for (let key in data) {
+        if (key.startsWith("cmi.interactions.")) {
+            cmiInteractions[key] = data[key];
+        } else {
+            remainingData[key] = data[key];
+        }
+    }
+    console.log("CMI Interactions:", cmiInteractions);
+    console.log("Remaining Data:", remainingData);
+}
+
+function loadScorm(){
+    if( scormdata != ''){
+
+    } else {
+        startScorm();
+    }
+}
