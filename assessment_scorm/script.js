@@ -114,6 +114,8 @@
      scormdata = JSON.stringify(data)
     // scormdata = ''
      checkProgress();
+
+     console.log("Number of Interactions:", data);
    });
 
    function logDimensions() {
@@ -463,9 +465,27 @@ function checkProgress(){
     console.log("Remaining Data:", remainingData);
 }
 
+function countInteractions(data) {
+    // Initialize the count to 0
+    let interactionsCount = 0;
+
+    // Iterate through the keys in data
+    for (let key in data) {
+        // Check if the key starts with "cmi.interactions."
+        if (key.startsWith("cmi.interactions.") && !isNaN(key.split(".")[2])) {
+            interactionsCount++;
+        }
+    }
+
+    // Return the count
+    return interactionsCount;
+}
+
 function loadScorm(){
     if( scormdata != ''){
-
+        document.getElementById('playSlideSaved').style.display='none';
+        document.getElementById('homePage').style.display='block';
+        document.getElementById('homePageAudio').play()
     } else {
         startScorm();
     }
