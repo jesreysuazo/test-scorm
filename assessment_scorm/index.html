@@ -1,38 +1,47 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<style>
-#div1 {
-  width: 350px;
-  height: 70px;
-  padding: 10px;
-  border: 1px solid #aaaaaa;
-}
-</style>
-<script>
-function allowDrop(ev) {
-  ev.preventDefault();
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="styles.css">
+  <title>Assessment Part</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
 
-function drag(ev) {
-  ev.dataTransfer.setData("text", ev.target.id);
-}
+    .aspect-ratio-container {
+      width: 104.4vw; /* 1044 / 10 = 104.4 */
+      height: 81.2vw; /* 812 / 10 = 81.2 */
+      max-width: 1044px;
+      max-height: 812px;
+      background-color: #f0f0f0; /* Optional: Set a background color */
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column; /* Align children vertically */
+    }
 
-function drop(ev) {
-  ev.preventDefault();
-  var data = ev.dataTransfer.getData("text");
-  ev.target.appendChild(document.getElementById(data));
-}
-</script>
+  </style>
 </head>
 <body>
 
-<p>Drag the W3Schools image into the rectangle:</p>
+  <!-- <div class="aspect-ratio-container"> -->
+    <div>
 
-<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-<br>
-<img id="drag1" src="img_logo.gif" draggable="true" ondragstart="drag(event)" width="336" height="69">
+    <div id="content"></div>
+  
+  </div>
 
+
+  <script src="try.js">
+ 
+  </script>
 </body>
 </html>
-
