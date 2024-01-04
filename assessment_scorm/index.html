@@ -28,12 +28,23 @@
       flex-direction: column; /* Align children vertically */
     }
 
+    .disp {
+        display: flex;
+        flex-direction: column;
+    }
+
+    div#content {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
   </style>
 </head>
 <body>
 
   <!-- <div class="aspect-ratio-container"> -->
-    <div>
+    <div class="disp">
 
     <div id="content"></div>
   
