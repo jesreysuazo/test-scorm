@@ -28,35 +28,162 @@
       flex-direction: column; /* Align children vertically */
     }
 
-    .disp {
-        display: flex;
-        flex-direction: column;
-    }
-
-    div#content {
-    display: flex;
-    flex-direction: column;
-    overflow: auto;
-}
-.test {
-    position: fixed;
-    top: 50vw;
-    left: 50vw;
-}
-
   </style>
 </head>
 <body>
 
-  <!-- <div class="aspect-ratio-container"> -->
-    <div class="disp">
-        <div class="test">TEXT</div>
-    <div id="content"></div>
-  
+  <div class="aspect-ratio-container">
+    <!-- initial slide no data-->
+    <div id="playSlide">
+        <div class="scorm-title" id="scormTitle">Assessment Part</div>
+        <div class="play-button-container" onclick="loadScorm()">
+            <div class="play-button" id="playButton">
+              <div class="play-triangle"></div>
+            </div>
+          </div>
+    </div>
+
+    <!-- initial slide saved data-->
+    <div id="playSlideSaved">
+        <div class="scorm-title" id="scormTitle">Assessment Part</div>
+        <div class="play-button-container" onclick="loadScorm()">
+            <div class="play-button-saved" id="playButtonSaved">
+              <div class="play-triangle-saved"></div>
+              <div class="txtResume" id="txtResume">Resume</div>
+            </div>
+          </div>
+        <div class="reload-section" id="reloadSect" onclick="startScorm()">
+            <span class=reload>&#x21bb;</span> Restart
+        </div>
+    </div>
+
+    <!-- slide 1 -->
+    <div id="homePage" class="home-page">
+        <div class="scorm-header">
+            <img class="img-bg" src="./assets/mobile/5wtkxthIOiT_P_0_0_1024_76.png">
+            <div class="header-text" id="headerText">EMERGENCY TOWING</div>
+            <img class="home-btn" onmouseover="mouseIn('homeBtn')" onmouseout="mouseOut('homeBtn')" id="homeBtn" src="./assets/mobile/6HdPRZOZ4ZU.png">
+        </div>
+        <div class="scorm-content">
+            <img class="img-bg" src="./assets/mobile/5WGz90qWQJ4_80.png">
+            <div class="content">
+                <img class="laptop" id="laptop" src="./assets/mobile/5zNb0x5SgBr.png">
+                <img class="laptop-screen" id="laptopScreen" src="./assets/mobile/5XbHuY67cor_P_85_34_1842_1256.png">
+                <img class="laptop-screen" id="laptopScreen2" src="./assets/mobile/6UpeADc8aJc_80_Q8.jpg">
+
+                <div class="banner" id="banner">ASSESSMENT</div>
+                <div class="desc" id="desc1">Great work! You made it!</div>
+                <div class="desc" id="desc2">You may now take your assessment for this module.</div>
+                <div class="desc" id="desc3">Click the next button if you are ready</div>
+            </div>
+        </div>
+
+        <div class="scorm-footer">
+            <img class="img-bg" src="./assets/mobile/5tdauCtkMUG_P_0_517_1024_69.png">
+            <div class="btn-container" id="btnContainer">
+                <img onclick="pauseAudio()" class="footer-btn" id="btnFooter1" src="./assets/mobile/6oUJrZ0q9kA.png">
+                <img onclick="repeatAudio()"class="footer-btn" id="btnFooter2" src="./assets/mobile/69s6DPNOMPn.png">
+                <img class="footer-btn" id="btnFooter3" src="./assets/mobile/6ECQ48AuLiZ.png">
+                <div class="paginate-text" id="pagination">1 / 2</div>
+                <img onclick="showQuestions()" class="footer-btn"id="btnFooter4" src="./assets/mobile/6h5N4eSxU7A.png">
+            </div>
+        </div>
+
+        <audio id="homePageAudio">
+            <source src="./assets/story_content/6HNulVK5rAz_44100_48_0.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
+      <!-- slide 2 -->
+    <div id="questionnaire" class="questionnaire-bg">
+
+        <img class="img-bg" src="./assets/mobile/6ELPsle15XD_80_P_113_0_872_654.jpg">
+        <div class="question-banner" id="questionBanner">
+            Assessment: Part 1
+        </div>
+        <div class="card">
+            <div class="instructions" id="instructions">
+                <span style="font-weight: 700;">INSTRUCTIONS:</span> Read the following questions carefully. Select the letter of the correct answer then click submit to proceed 
+            </div>
+        </div>
+        <div id="questionCard" class="question-card">
+            <div id="question" class="question">
+            </div>
+            <div id="choices"></div>
+        </div>
+        <div class="btn-submit-container">
+            <button class="btn-submit" onclick="nextQuestion()" id="btnSubmit">Submit</button>
+        </div>
+        <audio id="assessmentAudio">
+            <source src="./assets/story_content/6HAkwi7jPFl_44100_48_0.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
+    <!-- final slide -->
+    <div id="scoreScreen" class="questionnaire-bg">
+        <img class="img-bg" src="./assets/mobile/6ELPsle15XD_80_P_113_0_872_654.jpg">
+        <div class="question-banner" id="scoreBanner">
+            Assessment Retake Result
+        </div>
+        <div class="card"></div>
+        <!-- passed -->
+        <div class="final-slide-content">
+            <div class="passed-card" id="passedCard">
+                <div class="card-text" id="cardText">PASSED</div>
+            </div>
+            <div class="remarks-text" id="remarksText">Congratulations!</div>
+            <div class="remarks-text" id="remarksTextFailed">Sorry you did not pass. <br> You may see this assessment again in the future.</div>
+    
+            <div id="scoreSection" class="score-section">
+                <div class="score-text" id="passingScoreText">PASSING SCORE: 70%</div>
+                <div class="score-text" id="userScoreText">YOUR SCORE: %</div>
+            </div>
+            <div class="final-instruction-text" id="txtIns">Click the End button to close this course</div>
+            <button id="endBtn" class="btn-end">End</button>
+        </div>
+
+        <audio id="failedAudioSpeech">
+            <source src="./assets/story_content/62JzEZLBqKk_44100_48_0.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+
+        <audio id="failedAudioSound">
+            <source src="./assets/story_content/6UPlJiQGUiF_44100_48_0.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+
+        <audio id="passedAudioSpeech">
+            <source src="./assets/story_content/6ZVUji9Jkxj_44100_48_0.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+
+        <audio id="passedAudioSound">
+            <source src="./assets/story_content/6V9WQkPc8wy_44100_48_0.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+
+
+    </div>
+
+    <!-- modal for no selected answer -->
+    <div class="backdrop" id="backdrop"></div>
+
+    <div class="modal" id="errModal">
+      <p class="modal-header" id="modalHeader">Invalid Answer</p>
+      <hr class="solid">
+      <p class="modal-body" id="modalBody">You must complete the question before submitting</p>
+
+      <div class="btn-modal-container" id="btnModalContainer">
+        <button onclick="closeModal()" class="btn-modal" id="btnModal">OK</button>
+      </div>
+
+    </div>
   </div>
 
 
-  <script src="try.js">
+  <script src="script.js">
  
   </script>
 </body>
